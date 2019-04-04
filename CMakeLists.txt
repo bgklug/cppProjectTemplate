@@ -1,2 +1,2 @@
-cmake_minimum_required(3.3)
+cmake_minimum_required(3.4)
 project(ProjectTemplate)
