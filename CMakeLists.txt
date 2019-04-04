@@ -10,3 +10,26 @@ target_link_libraries(ProjectTemplate
     )
     
     
+install(TARGETS ProjectTemplate EXPORT ProjectTemplateTargets
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    RUNTIME DESTINATION bin
+    INCLUDES DESTINATION includes
+    )
+    
+install(EXPORT ProjectTemplateTargets
+    FILE ProjectTemplateTargets.cmake
+    NAMESPACE ProjectTemplate::
+    DESTINATION lib/cmake/ProjectTemplate
+    )
+    
+include(CMakePackageConfigHelpers)
+
+write_basic_package_version_file("ProjectTemplateConfigVersion.cmake"
+    VERSION ${ProjectTemplate_VERSION}
+    COMPATIBILITY SameMajorVersion
+    )
+    
+install(FILES "ProjectTemplateConfig.cmake" "ProjectTemplateConfigVersion.cmake"
+    DESTINATION lib/cmake/ProjectTemplate
+    )
